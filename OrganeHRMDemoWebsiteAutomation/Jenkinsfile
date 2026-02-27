@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'This is Build job'
+            }
+        }
+ stage('Test') {
+            steps {
+               echoooo 'This is Test job'
+
+            }
+        }
+ stage('Deploy') {
+            steps {
+              echo 'This is Deploy job'
+
+            }
+        }
+    }
+    post{
+        always{
+            emailext body: 'Hi, This is Jenkins test email', subject: 'Jenkins', to: 'kowsiselvi2@gmail.com'
+        }
+    }
+}
